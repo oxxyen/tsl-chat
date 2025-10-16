@@ -53,8 +53,8 @@ void *receive_message(void *arg) {
         if(*(c->stop_flag)) {
             break;
         }
-        ssize_t bytes_received;    //>>присвоим полученный размер пакета байт (можно int, но лучше ssize_t на случай, если размер превысит размер int)
-
+        ssize_t bytes_received = recv(c->client_socket, d->processor_buffer, PROCESSOR_BUFFER_SIZE, 0);
+        
         if(bytes_received <= 0) {
             if(bytes_received == 0) {
                 printf("server closed connected!\n");

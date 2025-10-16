@@ -44,10 +44,10 @@ bool is_valid_input(data *d) {
     bool isError = false;           //>>флаг ошибки
 
     int try = 1;                  //>>счетчик 
-
-    d -> stdin_buffer[MAX_MSG_LEN];                      // <~ БУФЕР ДЛЯ ВВЕДЕННОГО СООБЩЕНИЯ (1000 символов)
-    d -> arrangement_buffer[ARRANGEMENT_BUFFER_SIZE];   // <~ БУФЕР ДЛЯ ФОРМИРОВАНИЯ ПАКЕТА (1000 + ЗАРЕЗЕРВИРОВАННЫЕ ПОД ПАРАМЕТРЫ)
     
+    d->stdin_buffer = malloc(MAX_MSG_LEN);
+    d->arrangement_buffer = malloc(ARRANGEMENT_BUFFER_SIZE);
+
     // 1. Обрабатываем пользовательский ввод с stdin 
     while (!isValid_message && !isError) {
         // !1.1. Если ошибка ф-ии fgets - падаем с ошибкой

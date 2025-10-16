@@ -56,6 +56,5 @@ void add_message_to_history(data *d, const char *msg) {
         }
         // Если malloc вернул NULL — игнорируем (не хватило памяти)
     }
-
     pthread_mutex_unlock(&d->lock); // Разблокируем доступ
 }
